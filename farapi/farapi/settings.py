@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'alerts',
     'users',
+    'django_crontab',
 ]
 
 REST_FRAMEWORK = {
@@ -92,8 +93,12 @@ WSGI_APPLICATION = 'farapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'farapi',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',   
+        'PORT': '5432',   
     }
 }
 
@@ -176,3 +181,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = email
 EMAIL_HOST_PASSWORD = password
+
+# Crontab for alert checking
+CRONJOBS = [
+    ('*/5 * * * *', 'alerts.cron.check_alerts')
+]

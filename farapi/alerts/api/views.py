@@ -7,7 +7,7 @@ from .serializers import AlertSerializer, TriggeredAlertSerializer
 
 class AlertViewSet(viewsets.ModelViewSet):
     serializer_class = AlertSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         return Alert.objects.filter(user=self.request.user)
