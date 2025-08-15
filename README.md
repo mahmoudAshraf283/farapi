@@ -36,8 +36,8 @@ It fetches stock prices from the **[Twelve Data API](https://twelvedata.com/)** 
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone <repo-url>
-cd stock-price-alert
+git clone https://github.com/mahmoudAshraf283/farapi.git
+cd farapi
 ```
 
 ### 2️⃣ Create Virtual Environment
